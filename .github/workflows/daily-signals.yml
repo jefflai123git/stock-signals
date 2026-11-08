@@ -2,9 +2,11 @@ name: Daily signal report
 
 on:
   schedule:
-    # 00:30 UTC = 08:30 Malaysia time. Must stay after 00:00 UTC so the
-    # previous US session's bar counts as complete in signals.py.
-    - cron: "30 0 * * *"
+    # 21:33 UTC = 05:33 Malaysia time (early start leaves a buffer for GitHub's
+    # scheduler delays). The "Wait until 00:05 UTC" step below then holds the job
+    # until after 00:00 UTC, because signals.py only counts bars dated before
+    # today (UTC) as complete.
+    - cron: "33 21 * * *"
   workflow_dispatch:   # lets you press "Run workflow" manually
 
 permissions:
@@ -13,7 +15,7 @@ permissions:
 jobs:
   signals:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
 
@@ -23,6 +25,17 @@ jobs:
 
       - name: Install dependencies
         run: python -m pip install yfinance pandas numpy
+
+      - name: Wait until 00:05 UTC
+        if: github.event_name == 'schedule'   # manual runs start immediately
+        run: |
+          now=$(date -u +%s)
+          target=$(date -u -d "today 00:05" +%s)
+          # Triggered before midnight UTC -> wait for the next 00:05 UTC.
+          # Triggered after (late by the scheduler) -> run immediately.
+          if [ "$(date -u +%H)" -ge 12 ]; then target=$(date -u -d "tomorrow 00:05" +%s); fi
+          wait=$((target - now))
+          if [ "$wait" -gt 0 ]; then echo "Sleeping ${wait}s"; sleep "$wait"; fi
 
       - name: Run scanner
         env:
