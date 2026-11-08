@@ -1,16 +1,14 @@
-SIGNAL REPORT  2026-11-08 14:33 (local time)
+SIGNAL REPORT  2026-11-08 18:36 (local time)
 Scanned 91 symbols: 89 evaluated, 2 without usable data
 ==============================================================================
 
 BUY - all 5 conditions met (1)
   CBOE:VIX               close      25.64 (as of 2026-11-06)  wK/D 60/52  dK/D 61/50  wRSI 67
 
-SELL (55)
+SELL (54)
   SP:SPX                 close    7376.86 (as of 2026-11-06)  wK/D 34/47  dK/D 23/30  wRSI 45
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:QQQ             close     656.10 (as of 2026-11-06)  wK/D 24/36  dK/D 14/17  wRSI 40
-      -> Sell-1 (weekly RSI/MACD + daily D>K)
-  BITSTAMP:BTCUSD        close   75746.93 (as of 2026-11-06)  wK/D 41/57  dK/D 27/31  wRSI 49
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   CAPITALCOM:USOIL       close      90.83 (as of 2026-11-06)  wK/D 58/66  dK/D 21/22  wRSI 51
       -> Sell-1 (weekly RSI/MACD + daily D>K)
