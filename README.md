@@ -7,7 +7,11 @@ A personal, fully automated **buy/sell signal scanner** for US stocks, ETFs, ind
 ## How it works
 
 ```
-GitHub Actions (daily, 08:30 Malaysia time)
+Claude scheduled task (08:30 Malaysia time) starts the workflow
+   [backup: GitHub's own schedule, 05:33 Malaysia time]
+        |
+        v
+GitHub Actions workflow (waits until after 00:00 UTC, then runs)
         |
         v
 signals.py  --> downloads daily prices (Yahoo Finance; SOFR from FRED)
@@ -20,10 +24,12 @@ signals.py  --> downloads daily prices (Yahoo Finance; SOFR from FRED)
 latest.txt / latest.csv  (committed back to this repository)
         |
         v
-A scheduled Claude task reads latest.txt each morning and sends a summary
+The same Claude task waits for the run to finish, reads latest.txt,
+compares it with the previous report and sends the daily summary.
+A second Claude task sends a weekly summary every Saturday morning.
 ```
 
-1. **Schedule:** `.github/workflows/daily-signals.yml` runs at 00:30 UTC (08:30 Malaysia time) every day. It can also be started by hand from the **Actions** tab (*Run workflow*).
+1. **Triggers:** `.github/workflows/daily-signals.yml` can be started three ways. (a) The daily Claude task starts it at 08:30 Malaysia time through the GitHub API (`workflow_dispatch`), which starts within seconds. (b) GitHub's own schedule, set for 21:33 UTC (05:33 Malaysia time), is a backup: the job then waits until 00:05 UTC before scanning. (c) You can start it by hand from the **Actions** tab (*Run workflow*); manual runs start immediately.
 2. **Data:** daily prices for the last 5 years from Yahoo Finance (`yfinance`). Only *completed* daily bars are used. Weekly bars (weeks ending Friday) are built from the daily data, so the current week is an in-progress candle based on the latest completed day.
 3. **Report:** the newest result is always `latest.txt` (human-readable) and `latest.csv` (every indicator value). Dated copies are kept in `signal_reports/`.
 
@@ -70,6 +76,16 @@ D   = MA(K, M)         -> "slow line"
 
 Each line shows the latest close, the data date, weekly and daily SKDJ K/D values, and the weekly RSI.
 
+## Automation
+
+| What | When (Malaysia time) | What it does |
+|---|---|---|
+| **Daily Claude task** ("Daily stock signals from GitHub") | every day, 08:30 | Starts the workflow, waits for it to finish (up to 10 minutes), reads `latest.txt`, compares it with the previous dated report and sends: changes, full BUY and NEAR-BUY lists, SELL count by rule, symbols without data and the data date. It marks the report STALE and says why if the run failed or did not finish. |
+| **Weekly Claude task** ("Weekly stock signal summary") | every Saturday, about 09:00 | Read-only. Compares the newest report (Friday's US close) with the report from a week earlier and lists new and dropped BUY, SELL (by rule) and NEAR-BUY symbols, plus symbols that entered and left a list during the week. |
+| **GitHub schedule** (backup) | every day, 05:33 | Runs the scanner if the Claude task did not; waits until 00:05 UTC first. |
+
+GitHub's own scheduler can start jobs hours late, which is why the Claude task starts the workflow itself instead of relying on the schedule alone.
+
 ## Files
 
 | File | Purpose |
@@ -78,6 +94,18 @@ Each line shows the latest close, the data date, weekly and daily SKDJ K/D value
 | `.github/workflows/daily-signals.yml` | Daily schedule on GitHub Actions |
 | `latest.txt`, `latest.csv` | Newest report and all indicator values |
 | `signal_reports/` | Dated copies of every report |
+
+## Setting it up step by step (teaching steps)
+
+1. **Create a GitHub repository** (public or private) and add `signals.py` and `.github/workflows/daily-signals.yml`.
+2. **Check the workflow permission:** the workflow needs `permissions: contents: write` so it can save the report back into the repository (already in the file).
+3. **Run it once by hand:** open the **Actions** tab, choose *Daily signal report*, click *Run workflow*. After about a minute `latest.txt` appears in the repository and a dated copy in `signal_reports/`.
+4. **Open `latest.txt`** and read the sections (BUY, SELL, CONFLICT, NEAR-BUY, NO USABLE DATA); see *Reading the report* above.
+5. **Automate the start:** GitHub's `schedule:` trigger (cron `33 21 * * *`, which is 05:33 Malaysia time) is the backup. For on-time results, create a Claude scheduled task at 08:30 Malaysia time that starts the workflow through the GitHub connection, waits, then reads and summarises `latest.txt`. Do not rely on GitHub's cron alone: it can run hours late.
+6. **Keep the timing rule in mind:** the scan must run after 00:00 UTC (08:00 Malaysia time), otherwise the latest US session is treated as unfinished and the data is a day old. The workflow's wait step handles this for scheduled runs.
+7. **Add the weekly summary:** a second Claude scheduled task, Saturdays about 09:00 Malaysia time, compares this week's report with last week's.
+8. **Change the watchlist or rules** by editing the settings at the top of `signals.py` (see *Customising*), commit, and start a manual run to test.
+9. **Check each morning:** the daily message should show a report dated today. If it says STALE, open the **Actions** tab to see whether the run failed, is queued or did not start.
 
 ## Customising
 
@@ -99,10 +127,11 @@ python signals.py --symbols NVDA,AAPL   # quick test
 
 ## Things to know
 
-- **Run time matters.** The scan must run after 00:00 UTC (08:00 Malaysia time) so the previous US session counts as a completed bar. The workflow is set for 08:30 Malaysia time.
+- **Run time matters.** The scan must run after 00:00 UTC (08:00 Malaysia time) so the previous US session counts as a completed bar. The Claude task starts it at 08:30 Malaysia time. The backup GitHub schedule starts at 05:33 and the workflow then waits until 00:05 UTC, so it never scans too early.
 - **Weekends and Mondays:** there is no new US session, so Sunday and Monday morning reports repeat Friday's data.
 - **Sell-2 fires often.** In a strong uptrend, daily K stays above 75 for long stretches, so strong stocks can show SELL. Treat it as an overbought warning.
 - **Data source:** Yahoo Finance via `yfinance` is free but unofficial; occasional gaps or outages can happen. SOFR comes from FRED as a single daily value, so its SKDJ is approximate.
-- **GitHub schedules can run late** by several minutes during busy periods.
+- **GitHub schedules can run late**, sometimes by hours (the first scheduled run here started about 6 hours late). Runs started through the API start within seconds, which is why the Claude task triggers the workflow.
+- **Same-day re-runs:** starting the workflow again on the same day overwrites that day's dated report with fresh data and commits it.
 - **Short-history symbols** (recent listings) are skipped until they have 60 weeks of data.
 - **Assumptions:** "SKDJ reaches 75" uses the K line, and the RSI MA is a 14-period simple moving average. Both can be changed in the settings above.
