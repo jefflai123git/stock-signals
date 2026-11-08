@@ -1,13 +1,12 @@
 name: Daily signal report
 
+# This workflow has no schedule of its own: GitHub's scheduler can start jobs
+# hours late. A scheduled Claude task starts it at 08:30 Malaysia time through
+# the GitHub API (workflow_dispatch), and you can also press "Run workflow" by
+# hand in the Actions tab. Start it after 00:00 UTC (08:00 Malaysia time),
+# because signals.py only counts bars dated before today (UTC) as complete.
 on:
-  schedule:
-    # 21:33 UTC = 05:33 Malaysia time (early start leaves a buffer for GitHub's
-    # scheduler delays). The "Wait until 00:05 UTC" step below then holds the job
-    # until after 00:00 UTC, because signals.py only counts bars dated before
-    # today (UTC) as complete.
-    - cron: "33 21 * * *"
-  workflow_dispatch:   # lets you press "Run workflow" manually
+  workflow_dispatch:
 
 permissions:
   contents: write      # lets the job save the report back into the repo
@@ -15,7 +14,7 @@ permissions:
 jobs:
   signals:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -25,17 +24,6 @@ jobs:
 
       - name: Install dependencies
         run: python -m pip install yfinance pandas numpy
-
-      - name: Wait until 00:05 UTC
-        if: github.event_name == 'schedule'   # manual runs start immediately
-        run: |
-          now=$(date -u +%s)
-          target=$(date -u -d "today 00:05" +%s)
-          # Triggered before midnight UTC -> wait for the next 00:05 UTC.
-          # Triggered after (late by the scheduler) -> run immediately.
-          if [ "$(date -u +%H)" -ge 12 ]; then target=$(date -u -d "tomorrow 00:05" +%s); fi
-          wait=$((target - now))
-          if [ "$wait" -gt 0 ]; then echo "Sleeping ${wait}s"; sleep "$wait"; fi
 
       - name: Run scanner
         env:
