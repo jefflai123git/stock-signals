@@ -1,22 +1,20 @@
-SIGNAL REPORT  2026-11-08 19:14 (local time)
+SIGNAL REPORT  2026-11-09 08:37 (local time)
 Scanned 91 symbols: 89 evaluated, 2 without usable data
 ==============================================================================
 
 BUY - all 5 conditions met (1)
   CBOE:VIX               close      25.64 (as of 2026-11-06)  wK/D 60/52  dK/D 61/50  wRSI 67
 
-SELL (54)
+SELL (53)
   SP:SPX                 close    7376.86 (as of 2026-11-06)  wK/D 34/47  dK/D 23/30  wRSI 45
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:QQQ             close     656.10 (as of 2026-11-06)  wK/D 24/36  dK/D 14/17  wRSI 40
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  CAPITALCOM:USOIL       close      90.83 (as of 2026-11-06)  wK/D 58/66  dK/D 21/22  wRSI 51
+  CAPITALCOM:USOIL       close      90.26 (as of 2026-11-08)  wK/D 44/58  dK/D 21/21  wRSI 50
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   TVC:US10Y              close       4.86 (as of 2026-11-06)  wK/D 46/60  dK/D 18/20  wRSI 54
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   TVC:US30Y              close       5.26 (as of 2026-11-06)  wK/D 33/47  dK/D 26/29  wRSI 52
-      -> Sell-1 (weekly RSI/MACD + daily D>K)
-  FX_IDC:USDMYR          close       4.04 (as of 2026-11-06)  wK/D 52/67  dK/D 43/51  wRSI 47
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   AMEX:SPMO              close     124.41 (as of 2026-11-06)  wK/D 18/27  dK/D 9/13  wRSI 34
       -> Sell-1 (weekly RSI/MACD + daily D>K)
@@ -118,7 +116,9 @@ SELL (54)
 CONFLICT - buy conditions AND a sell rule both true (review manually) (0)
   none
 
-NEAR-BUY - 4 of 5 buy conditions met (7)
+NEAR-BUY - 4 of 5 buy conditions met (8)
+  CMCMARKETS:SILVER      close      52.18 (as of 2026-11-08)  wK/D 13/12  dK/D 53/45  wRSI 38
+      -> weekly MACD>0 and >signal
   NASDAQ:AMZN            close     259.30 (as of 2026-11-06)  wK/D 38/32  dK/D 67/63  wRSI 54
       -> weekly MACD>0 and >signal
   NASDAQ:ICLN            close      16.45 (as of 2026-11-06)  wK/D 17/15  dK/D 59/55  wRSI 41
@@ -131,7 +131,7 @@ NEAR-BUY - 4 of 5 buy conditions met (7)
       -> weekly MACD>0 and >signal
   NYSE:OKLO              close      23.55 (as of 2026-11-06)  wK/D 9/7  dK/D 21/15  wRSI 29
       -> weekly MACD>0 and >signal
-  TVC:GOLD               close    4074.90 (as of 2026-11-06)  wK/D 16/16  dK/D 62/52  wRSI 43
+  TVC:GOLD               close    4080.10 (as of 2026-11-08)  wK/D 22/17  dK/D 67/61  wRSI 43
       -> weekly MACD>0 and >signal
 
 NO USABLE DATA (2)
