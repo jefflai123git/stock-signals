@@ -113,19 +113,6 @@ The workflow has no schedule of its own: GitHub's scheduler can start jobs hours
 | `latest.txt`, `latest.csv` | Newest report and all indicator values |
 | `signal_reports/` | Dated copies of every report |
 
-## Setting it up step by step (teaching steps)
-
-1. **Create a GitHub repository** (public or private) and add `signals.py` and `.github/workflows/daily-signals.yml`.
-2. **Check the workflow permission:** the workflow needs `permissions: contents: write` so it can save the report back into the repository (already in the file).
-3. **Run it once by hand:** open the **Actions** tab, choose *Daily signal report*, click *Run workflow*. After about a minute `latest.txt` appears in the repository and a dated copy in `signal_reports/`.
-4. **Open `latest.txt`** and read the sections (BUY, SELL, CONFLICT, NEAR-BUY, NO USABLE DATA); see *Reading the report* above.
-5. **Automate the start:** create a Claude scheduled task at 08:30 Malaysia time that starts the workflow through the GitHub connection, waits, then reads and summarises `latest.txt`. The workflow deliberately has no `schedule:` trigger, because GitHub's cron can run hours late.
-6. **Add the news tables:** in the same task, after reading `latest.txt`, tell Claude to search the web for the latest news on each company in the BUY, NEAR-BUY and SELL lists and to show it as a two-column table (good news left, bad news right) directly under the company's name. Skip ETFs, indices, commodities, crypto and yields. Ask for a date and source on every item and for *none found* when there is nothing. Do not ask for a market-news summary.
-7. **Keep the timing rule in mind:** the scan must run after 00:00 UTC (08:00 Malaysia time), otherwise the latest US session is treated as unfinished and the data is a day old. The Claude task starts it at 08:30; if you start it by hand, do so after 08:00 Malaysia time.
-8. **Add the weekly summary:** a second Claude scheduled task, Saturdays about 09:00 Malaysia time, compares this week's report with last week's.
-9. **Change the watchlist or rules** by editing the settings at the top of `signals.py` (see *Customising*), commit, and start a manual run to test.
-10. **Check each morning:** the daily message should show a report dated today. If it says STALE, open the **Actions** tab to see whether the run failed, is queued or did not start. Treat the news tables as leads: open the source before relying on any item.
-
 ## Customising
 
 All settings are at the top of `signals.py`:
