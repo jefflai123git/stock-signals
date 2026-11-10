@@ -24,7 +24,9 @@ latest.txt / latest.csv  (committed back to this repository)
         |
         v
 The same Claude task waits for the run to finish, reads latest.txt,
-compares it with the previous report and sends the daily summary.
+compares it with the previous report, looks up the latest good and bad
+news for every company on the BUY / NEAR-BUY / SELL lists, and sends
+the daily summary.
 A second Claude task sends a weekly summary every Saturday morning.
 ```
 
@@ -75,11 +77,29 @@ D   = MA(K, M)         -> "slow line"
 
 Each line shows the latest close, the data date, weekly and daily SKDJ K/D values, and the weekly RSI.
 
+## Daily news tables
+
+The scanner only produces technical signals. The daily Claude task adds the latest company news on top of it. There is no general market-news summary; the message goes straight to the signals.
+
+- **Which symbols:** every individual company on the BUY, NEAR-BUY and SELL lists. ETFs, indices, commodities, currencies, crypto and bond yields (for example IWM, ICLN, UFO, GOLD, SILVER, BTCUSD, USOIL, BOXX, US10Y) have no company news and are listed without a table.
+- **Layout:** directly below each company's name and signal line there is a two-column table, **good news on the left and bad news on the right**.
+
+```
+NASDAQ:AMZN   close 266.93 (as of 2026-11-09)
+
+| Good news                          | Bad news                          |
+|------------------------------------|-----------------------------------|
+| Partnership extended (source, date)| Shares fell 5% in a week (source) |
+```
+
+- **Content rules:** each item is one short line with its date and source name. The task searches the web for news from roughly the past 7 to 14 days, newest first, and prefers company press releases and major news outlets. It writes *none found* for an empty side. When only a headline could be read, and not the article, the item says so. Undated items or items that look older than the window are left out. Where sources disagree, both versions are shown.
+- **No advice:** the news is listed as found. The task adds no recommendations or opinions.
+
 ## Automation
 
 | What | When (Malaysia time) | What it does |
 |---|---|---|
-| **Daily Claude task** ("Daily stock signals from GitHub") | every day, 08:30 | Starts the workflow, waits for it to finish (up to 10 minutes), reads `latest.txt`, compares it with the previous dated report and sends: changes, full BUY and NEAR-BUY lists, SELL count by rule, symbols without data and the data date. It marks the report STALE and says why if the run failed or did not finish. |
+| **Daily Claude task** ("Daily stock signals from GitHub") | every day, 08:30 | Starts the workflow, waits for it to finish (up to 10 minutes), reads `latest.txt`, compares it with the previous dated report and sends: changes, full BUY and NEAR-BUY lists, SELL count by rule, symbols without data and the data date. For every company on the BUY, NEAR-BUY and SELL lists it also adds a good-news / bad-news table (see *Daily news tables*). It marks the report STALE and says why if the run failed or did not finish. |
 | **Weekly Claude task** ("Weekly stock signal summary") | every Saturday, about 09:00 | Read-only. Compares the newest report (Friday's US close) with the report from a week earlier and lists new and dropped BUY, SELL (by rule) and NEAR-BUY symbols, plus symbols that entered and left a list during the week. |
 
 The workflow has no schedule of its own: GitHub's scheduler can start jobs hours late, which is why the Claude task starts it. If the Claude task cannot start a run, its message says the report is STALE and gives the cause; you can then start the workflow by hand from the **Actions** tab.
@@ -100,10 +120,11 @@ The workflow has no schedule of its own: GitHub's scheduler can start jobs hours
 3. **Run it once by hand:** open the **Actions** tab, choose *Daily signal report*, click *Run workflow*. After about a minute `latest.txt` appears in the repository and a dated copy in `signal_reports/`.
 4. **Open `latest.txt`** and read the sections (BUY, SELL, CONFLICT, NEAR-BUY, NO USABLE DATA); see *Reading the report* above.
 5. **Automate the start:** create a Claude scheduled task at 08:30 Malaysia time that starts the workflow through the GitHub connection, waits, then reads and summarises `latest.txt`. The workflow deliberately has no `schedule:` trigger, because GitHub's cron can run hours late.
-6. **Keep the timing rule in mind:** the scan must run after 00:00 UTC (08:00 Malaysia time), otherwise the latest US session is treated as unfinished and the data is a day old. The Claude task starts it at 08:30; if you start it by hand, do so after 08:00 Malaysia time.
-7. **Add the weekly summary:** a second Claude scheduled task, Saturdays about 09:00 Malaysia time, compares this week's report with last week's.
-8. **Change the watchlist or rules** by editing the settings at the top of `signals.py` (see *Customising*), commit, and start a manual run to test.
-9. **Check each morning:** the daily message should show a report dated today. If it says STALE, open the **Actions** tab to see whether the run failed, is queued or did not start.
+6. **Add the news tables:** in the same task, after reading `latest.txt`, tell Claude to search the web for the latest news on each company in the BUY, NEAR-BUY and SELL lists and to show it as a two-column table (good news left, bad news right) directly under the company's name. Skip ETFs, indices, commodities, crypto and yields. Ask for a date and source on every item and for *none found* when there is nothing. Do not ask for a market-news summary.
+7. **Keep the timing rule in mind:** the scan must run after 00:00 UTC (08:00 Malaysia time), otherwise the latest US session is treated as unfinished and the data is a day old. The Claude task starts it at 08:30; if you start it by hand, do so after 08:00 Malaysia time.
+8. **Add the weekly summary:** a second Claude scheduled task, Saturdays about 09:00 Malaysia time, compares this week's report with last week's.
+9. **Change the watchlist or rules** by editing the settings at the top of `signals.py` (see *Customising*), commit, and start a manual run to test.
+10. **Check each morning:** the daily message should show a report dated today. If it says STALE, open the **Actions** tab to see whether the run failed, is queued or did not start. Treat the news tables as leads: open the source before relying on any item.
 
 ## Customising
 
@@ -131,5 +152,6 @@ python signals.py --symbols NVDA,AAPL   # quick test
 - **Data source:** Yahoo Finance via `yfinance` is free but unofficial; occasional gaps or outages can happen. SOFR comes from FRED as a single daily value, so its SKDJ is approximate.
 - **GitHub schedules can run late**, sometimes by hours (the first scheduled run here started about 6 hours late), so the workflow has no schedule of its own. Runs started through the API start within seconds, which is why the Claude task triggers the workflow.
 - **Same-day re-runs:** starting the workflow again on the same day overwrites that day's dated report with fresh data and commits it.
+- **News tables are only as good as the search.** The search tool can return headlines without article text, dates can be missing, and some items may refer to an earlier quarter. The tables say when this is the case. The news comes from the daily Claude task, not from `signals.py`, so it is not saved in `latest.txt` or `signal_reports/`.
 - **Short-history symbols** (recent listings) are skipped until they have 60 weeks of data.
 - **Assumptions:** "SKDJ reaches 75" uses the K line, and the RSI MA is a 14-period simple moving average. Both can be changed in the settings above.
