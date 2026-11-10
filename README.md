@@ -1,6 +1,6 @@
 # stock-signals
 
-A personal, fully automated **buy/sell signal scanner** for US stocks, ETFs, indices and a few macro series (about 90 symbols). Every morning it downloads fresh prices, calculates three technical indicators on both **weekly** and **daily** charts, applies a fixed set of buy and sell rules, and publishes a plain-text report.
+A personal, fully automated **buy/sell signal scanner** for US stocks, ETFs, indices and a few macro series (about 90 symbols). Every morning it downloads fresh prices, calculates three technical indicators on both **weekly** and **daily** charts, applies a fixed set of buy and sell rules, and publishes a plain-text report. A daily Claude task then reads the report and sends a summary that also shows the latest good and bad news for each company on the BUY, NEAR-BUY and SELL lists, as a two-column table (good news on the left, bad news on the right) under the company's name.
 
 > Technical-analysis output only. This is not investment advice, and the rules have not been back-tested.
 
