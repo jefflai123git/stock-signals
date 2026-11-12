@@ -55,6 +55,12 @@ def run_variant(t, mode):
 def main():
     tickers = [s for g in B.GROUPS.values() for s in g]
     frames = S.download_all(tickers)
+    for _ in range(3):                       # retry anything Yahoo dropped
+        miss = [t for t in tickers if t not in frames]
+        if not miss:
+            break
+        print("  retrying", miss)
+        frames.update(S.download_all(miss))
     last_day = pd.Timestamp.now(tz="UTC").tz_localize(None).normalize() - pd.Timedelta(days=1)
     OUT.mkdir(parents=True, exist_ok=True)
     modes = ("Live weekly", "Completed weekly")
