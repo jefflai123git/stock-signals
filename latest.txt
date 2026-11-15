@@ -1,14 +1,14 @@
-SIGNAL REPORT  2026-11-14 08:38 (local time)
-Scanned 91 symbols: 89 evaluated, 2 without usable data
+SIGNAL REPORT  2026-11-15 08:38 (local time)
+Scanned 91 symbols: 88 evaluated, 3 without usable data
 ==============================================================================
 
-BUY - all 5 conditions met (0)
-  none
+BUY - all 5 conditions met (1)
+  FX_IDC:USDMYR          close       4.08 (as of 2026-11-14)  wK/D 58/54  dK/D 69/57  wRSI 55
 
 SELL (21)
-  BITSTAMP:BTCUSD        close   71342.97 (as of 2026-11-12)  wK/D 27/42  dK/D 12/15  wRSI 44
+  BITSTAMP:BTCUSD        close   68249.27 (as of 2026-11-13)  wK/D 27/42  dK/D 10/13  wRSI 40
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  TVC:GOLD               close    3887.60 (as of 2026-11-13)  wK/D 14/15  dK/D 34/47  wRSI 38
+  TVC:GOLD               close    3886.30 (as of 2026-11-13)  wK/D 14/15  dK/D 34/47  wRSI 38
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   TVC:US10Y              close       5.15 (as of 2026-11-13)  wK/D 46/51  dK/D 77/65  wRSI 64
       -> Sell-2 (daily K >= 75)
@@ -38,7 +38,7 @@ SELL (21)
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:UPST            close      19.56 (as of 2026-11-13)  wK/D 13/13  dK/D 16/20  wRSI 31
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  NASDAQ:COIN            close     127.64 (as of 2026-11-13)  wK/D 15/23  dK/D 13/15  wRSI 35
+  NASDAQ:COIN            close     127.65 (as of 2026-11-13)  wK/D 15/23  dK/D 13/15  wRSI 35
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:CEG             close     280.20 (as of 2026-11-13)  wK/D 36/32  dK/D 87/81  wRSI 51
       -> Sell-2 (daily K >= 75)
@@ -53,12 +53,10 @@ CONFLICT - buy conditions AND a sell rule both true (review manually) (1)
   NYSE:LLY               close    1443.50 (as of 2026-11-13)  wK/D 78/72  dK/D 80/78  wRSI 69
       -> Sell-2 (daily K >= 75)
 
-NEAR-BUY - 4 of 5 buy conditions met (15)
+NEAR-BUY - 4 of 5 buy conditions met (14)
   NASDAQ:APLD            close      15.97 (as of 2026-11-13)  wK/D 12/11  dK/D 60/57  wRSI 33
       -> weekly MACD>0 and >signal
   NASDAQ:AVAV            close     117.52 (as of 2026-11-13)  wK/D 19/17  dK/D 63/60  wRSI 38
-      -> weekly MACD>0 and >signal
-  NASDAQ:AVGO            close     347.01 (as of 2026-11-13)  wK/D 22/14  dK/D 71/63  wRSI 48
       -> weekly MACD>0 and >signal
   NASDAQ:CRWV            close      53.13 (as of 2026-11-13)  wK/D 13/12  dK/D 60/54  wRSI 38
       -> weekly MACD>0 and >signal
@@ -85,7 +83,8 @@ NEAR-BUY - 4 of 5 buy conditions met (15)
   NYSE:VSH               close      26.62 (as of 2026-11-13)  wK/D 18/17  dK/D 64/60  wRSI 43
       -> weekly MACD>0 and >signal
 
-NO USABLE DATA (2)
+NO USABLE DATA (3)
+  NASDAQ:AVGO            no data returned
   CBOE:DRAM              insufficient history (33 weeks)
   NASDAQ:SPCX            insufficient history (23 weeks)
 
