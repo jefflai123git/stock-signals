@@ -1,0 +1,123 @@
+SIGNAL REPORT  2026-11-20 08:38 (local time)
+Scanned 91 symbols: 88 evaluated, 3 without usable data
+==============================================================================
+
+BUY - all 5 conditions met (2)
+  FX_IDC:USDMYR          close       4.11 (as of 2026-11-19)  wK/D 58/53  dK/D 74/74  wRSI 59
+  CBOE:VIX               close      28.44 (as of 2026-11-19)  wK/D 65/60  dK/D 66/54  wRSI 64
+
+SELL (49)
+  SP:SPX                 close    7175.83 (as of 2026-11-19)  wK/D 24/30  dK/D 18/28  wRSI 40
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:QQQ             close     645.04 (as of 2026-11-19)  wK/D 17/21  dK/D 26/35  wRSI 39
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  BITSTAMP:BTCUSD        close   62987.27 (as of 2026-11-18)  wK/D 18/29  dK/D 15/16  wRSI 36
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  TVC:GOLD               close    3616.00 (as of 2026-11-19)  wK/D 11/14  dK/D 9/13  wRSI 32
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  CMCMARKETS:SILVER      close      42.78 (as of 2026-11-19)  wK/D 7/9  dK/D 12/17  wRSI 30
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  AMEX:IWM               close     264.22 (as of 2026-11-19)  wK/D 21/22  dK/D 18/26  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  CAPITALCOM:USOIL       close      82.82 (as of 2026-11-19)  wK/D 31/45  dK/D 16/19  wRSI 45
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  TVC:US10Y              close       5.05 (as of 2026-11-19)  wK/D 46/46  dK/D 75/79  wRSI 59
+      -> Sell-2 (daily K >= 75)
+  AMEX:SPMO              close     124.04 (as of 2026-11-19)  wK/D 16/18  dK/D 32/44  wRSI 37
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  CBOE:BOXX              close     119.08 (as of 2026-11-19)  wK/D 99/99  dK/D 95/94  wRSI 100
+      -> Sell-2 (daily K >= 75)
+  NASDAQ:UFO             close      37.97 (as of 2026-11-19)  wK/D 28/27  dK/D 38/51  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:ICLN            close      14.49 (as of 2026-11-19)  wK/D 16/18  dK/D 14/21  wRSI 31
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:RKLB            close      50.99 (as of 2026-11-19)  wK/D 29/26  dK/D 38/52  wRSI 41
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:ASTS            close      25.55 (as of 2026-11-19)  wK/D 10/12  dK/D 12/19  wRSI 30
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:ONDS            close       4.23 (as of 2026-11-19)  wK/D 16/18  dK/D 14/21  wRSI 32
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:PL                close      11.63 (as of 2026-11-19)  wK/D 17/16  dK/D 31/45  wRSI 34
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:VSAT            close      61.48 (as of 2026-11-19)  wK/D 34/36  dK/D 30/38  wRSI 46
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:KTOS            close      29.65 (as of 2026-11-19)  wK/D 13/16  dK/D 9/12  wRSI 31
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:RTX               close     193.44 (as of 2026-11-19)  wK/D 52/47  dK/D 47/54  wRSI 49
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AVAV            close      95.91 (as of 2026-11-19)  wK/D 15/17  dK/D 20/31  wRSI 34
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:RCAT            close       1.94 (as of 2026-11-19)  wK/D 8/9  dK/D 14/21  wRSI 27
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  AMEX:FNGU              close      20.30 (as of 2026-11-19)  wK/D 14/19  dK/D 21/27  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:NVDA            close     145.98 (as of 2026-11-19)  wK/D 13/18  dK/D 10/13  wRSI 29
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AMZN            close     257.37 (as of 2026-11-19)  wK/D 57/49  dK/D 42/47  wRSI 52
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:GOOG            close     271.02 (as of 2026-11-19)  wK/D 13/16  dK/D 20/30  wRSI 34
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:META            close     596.22 (as of 2026-11-19)  wK/D 26/34  dK/D 39/54  wRSI 45
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:MSFT            close     498.30 (as of 2026-11-19)  wK/D 48/59  dK/D 18/22  wRSI 54
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:NFLX            close      58.46 (as of 2026-11-19)  wK/D 7/9  dK/D 8/10  wRSI 30
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:PLTR            close     153.68 (as of 2026-11-19)  wK/D 27/38  dK/D 21/29  wRSI 46
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:ASML            close    1356.20 (as of 2026-11-19)  wK/D 16/20  dK/D 22/31  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:QCOM            close     162.01 (as of 2026-11-19)  wK/D 31/32  dK/D 35/49  wRSI 46
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:TSM               close     352.09 (as of 2026-11-19)  wK/D 20/24  dK/D 24/36  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:NVO               close      38.87 (as of 2026-11-19)  wK/D 39/33  dK/D 26/37  wRSI 41
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:HIMS              close      16.02 (as of 2026-11-19)  wK/D 18/24  dK/D 4/6  wRSI 32
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:SOFI            close      13.53 (as of 2026-11-19)  wK/D 30/35  dK/D 6/10  wRSI 36
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AFRM            close      56.91 (as of 2026-11-19)  wK/D 15/22  dK/D 5/7  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:UPST            close      17.00 (as of 2026-11-19)  wK/D 10/12  dK/D 4/6  wRSI 27
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:COIN            close     108.87 (as of 2026-11-19)  wK/D 9/15  dK/D 4/6  wRSI 30
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:CCJ               close      61.42 (as of 2026-11-19)  wK/D 10/11  dK/D 11/18  wRSI 26
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:FCX               close      49.12 (as of 2026-11-19)  wK/D 12/17  dK/D 11/17  wRSI 32
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:CEG             close     252.03 (as of 2026-11-19)  wK/D 36/33  dK/D 56/71  wRSI 46
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:SMR               close       3.81 (as of 2026-11-19)  wK/D 7/8  dK/D 9/14  wRSI 27
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:OKLO              close      20.84 (as of 2026-11-19)  wK/D 13/12  dK/D 30/42  wRSI 27
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:VST               close     124.15 (as of 2026-11-19)  wK/D 29/29  dK/D 45/58  wRSI 40
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:NKE               close      34.33 (as of 2026-11-19)  wK/D 56/61  dK/D 14/16  wRSI 34
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:LUNR            close       9.78 (as of 2026-11-19)  wK/D 28/24  dK/D 37/50  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:POET            close       4.07 (as of 2026-11-19)  wK/D 13/14  dK/D 22/34  wRSI 35
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:SIMO            close     143.75 (as of 2026-11-19)  wK/D 12/17  dK/D 12/17  wRSI 35
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:TE                close       1.29 (as of 2026-11-19)  wK/D 8/9  dK/D 9/9  wRSI 32
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+
+CONFLICT - buy conditions AND a sell rule both true (review manually) (0)
+  none
+
+NEAR-BUY - 4 of 5 buy conditions met (2)
+  NASDAQ:AVGO            close     346.65 (as of 2026-11-19)  wK/D 35/22  dK/D 69/68  wRSI 48
+      -> weekly MACD>0 and >signal
+  NASDAQ:WDC             close     296.78 (as of 2026-11-19)  wK/D 13/11  dK/D 44/39  wRSI 40
+      -> weekly MACD>0 and >signal
+
+NO USABLE DATA (3)
+  NASDAQ:SNDK            insufficient history (1 weeks)
+  CBOE:DRAM              insufficient history (34 weeks)
+  NASDAQ:SPCX            insufficient history (24 weeks)
+
+Technical-analysis output only; not investment advice.
