@@ -1,20 +1,20 @@
-SIGNAL REPORT  2026-11-21 08:38 (local time)
-Scanned 91 symbols: 89 evaluated, 2 without usable data
+SIGNAL REPORT  2026-11-22 08:38 (local time)
+Scanned 91 symbols: 88 evaluated, 3 without usable data
 ==============================================================================
 
 BUY - all 5 conditions met (0)
   none
 
-SELL (80)
+SELL (79)
   SP:SPX                 close    6910.39 (as of 2026-11-20)  wK/D 25/31  dK/D 12/19  wRSI 35
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:QQQ             close     608.45 (as of 2026-11-20)  wK/D 17/21  dK/D 17/26  wRSI 34
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  BITSTAMP:BTCUSD        close   61901.82 (as of 2026-11-19)  wK/D 18/29  dK/D 12/15  wRSI 35
+  BITSTAMP:BTCUSD        close   58798.98 (as of 2026-11-20)  wK/D 18/29  dK/D 10/12  wRSI 32
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  TVC:GOLD               close    3539.00 (as of 2026-11-20)  wK/D 11/14  dK/D 10/11  wRSI 31
+  TVC:GOLD               close    3515.40 (as of 2026-11-20)  wK/D 11/14  dK/D 9/11  wRSI 30
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  CMCMARKETS:SILVER      close      41.08 (as of 2026-11-20)  wK/D 7/9  dK/D 8/11  wRSI 29
+  CMCMARKETS:SILVER      close      41.03 (as of 2026-11-20)  wK/D 7/9  dK/D 7/11  wRSI 29
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   AMEX:IWM               close     256.61 (as of 2026-11-20)  wK/D 20/22  dK/D 12/18  wRSI 35
       -> Sell-1 (weekly RSI/MACD + daily D>K)
@@ -52,15 +52,13 @@ SELL (80)
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:KTOS            close      26.89 (as of 2026-11-20)  wK/D 13/16  dK/D 6/9  wRSI 29
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  NYSE:RTX               close     190.17 (as of 2026-11-20)  wK/D 49/46  dK/D 34/46  wRSI 48
+  NYSE:RTX               close     190.17 (as of 2026-11-20)  wK/D 50/46  dK/D 34/46  wRSI 48
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:AVAV            close      86.79 (as of 2026-11-20)  wK/D 15/17  dK/D 12/21  wRSI 32
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:RCAT            close       1.79 (as of 2026-11-20)  wK/D 8/9  dK/D 9/14  wRSI 27
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   NASDAQ:MU              close     594.51 (as of 2026-11-20)  wK/D 17/21  dK/D 22/30  wRSI 38
-      -> Sell-1 (weekly RSI/MACD + daily D>K)
-  NASDAQ:SNDK            close      79.24 (as of 2026-11-20)  wK/D 8/11  dK/D 8/12  wRSI 34
       -> Sell-1 (weekly RSI/MACD + daily D>K)
   AMEX:FNGU              close      16.38 (as of 2026-11-20)  wK/D 14/19  dK/D 15/22  wRSI 34
       -> Sell-1 (weekly RSI/MACD + daily D>K)
@@ -168,15 +166,16 @@ SELL (80)
       -> Sell-1 (weekly RSI/MACD + daily D>K)
 
 CONFLICT - buy conditions AND a sell rule both true (review manually) (1)
-  FX_IDC:USDMYR          close       4.11 (as of 2026-11-20)  wK/D 58/53  dK/D 76/74  wRSI 59
+  FX_IDC:USDMYR          close       4.11 (as of 2026-11-21)  wK/D 65/58  dK/D 77/76  wRSI 59
       -> Sell-2 (daily K >= 75)
 
 NEAR-BUY - 4 of 5 buy conditions met (1)
   CBOE:VIX               close      35.89 (as of 2026-11-20)  wK/D 62/59  dK/D 73/64  wRSI 70
       -> weekly RSI<70
 
-NO USABLE DATA (2)
+NO USABLE DATA (3)
   CBOE:DRAM              insufficient history (34 weeks)
+  NYSE:COHR              no data returned
   NASDAQ:SPCX            insufficient history (24 weeks)
 
 Technical-analysis output only; not investment advice.
