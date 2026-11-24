@@ -1,0 +1,39 @@
+SIGNAL REPORT  2026-11-24 08:37 (local time)
+Scanned 91 symbols: 88 evaluated, 3 without usable data
+==============================================================================
+
+BUY - all 5 conditions met (0)
+  none
+
+SELL (6)
+  CAPITALCOM:USOIL       close      80.49 (as of 2026-11-23)  wK/D 22/33  dK/D 17/18  wRSI 44
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  TVC:US10Y              close       4.92 (as of 2026-11-23)  wK/D 33/39  dK/D 39/57  wRSI 54
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  TVC:US30Y              close       5.29 (as of 2026-11-23)  wK/D 25/30  dK/D 40/58  wRSI 52
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  CBOE:BOXX              close     119.15 (as of 2026-11-23)  wK/D 99/99  dK/D 96/96  wRSI 100
+      -> Sell-2 (daily K >= 75)
+  NASDAQ:ECHO            close      88.25 (as of 2026-11-23)  wK/D 40/51  dK/D 24/33  wRSI 45
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:NKE               close      33.76 (as of 2026-11-23)  wK/D 41/53  dK/D 9/11  wRSI 34
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+
+CONFLICT - buy conditions AND a sell rule both true (review manually) (1)
+  FX_IDC:USDMYR          close       4.11 (as of 2026-11-23)  wK/D 65/58  dK/D 77/76  wRSI 59
+      -> Sell-2 (daily K >= 75)
+
+NEAR-BUY - 4 of 5 buy conditions met (3)
+  NASDAQ:AMZN            close     255.39 (as of 2026-11-23)  wK/D 53/52  dK/D 29/34  wRSI 52
+      -> daily SKDJ K>D
+  NASDAQ:NVDA            close     165.05 (as of 2026-11-23)  wK/D 17/16  dK/D 23/13  wRSI 41
+      -> weekly MACD>0 and >signal
+  NASDAQ:WDC             close     297.25 (as of 2026-11-23)  wK/D 11/11  dK/D 41/40  wRSI 41
+      -> weekly MACD>0 and >signal
+
+NO USABLE DATA (3)
+  NYSE:BE                no data returned
+  CBOE:DRAM              insufficient history (35 weeks)
+  NASDAQ:SPCX            insufficient history (25 weeks)
+
+Technical-analysis output only; not investment advice.
