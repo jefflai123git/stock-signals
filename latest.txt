@@ -1,38 +1,52 @@
-SIGNAL REPORT  2026-11-24 08:37 (local time)
+SIGNAL REPORT  2026-11-25 08:38 (local time)
 Scanned 91 symbols: 88 evaluated, 3 without usable data
 ==============================================================================
 
 BUY - all 5 conditions met (0)
   none
 
-SELL (6)
-  CAPITALCOM:USOIL       close      80.49 (as of 2026-11-23)  wK/D 22/33  dK/D 17/18  wRSI 44
+SELL (11)
+  CAPITALCOM:USOIL       close      81.68 (as of 2026-11-24)  wK/D 23/33  dK/D 16/17  wRSI 45
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  TVC:US10Y              close       4.92 (as of 2026-11-23)  wK/D 33/39  dK/D 39/57  wRSI 54
+  TVC:US10Y              close       4.90 (as of 2026-11-24)  wK/D 32/39  dK/D 27/41  wRSI 53
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  TVC:US30Y              close       5.29 (as of 2026-11-23)  wK/D 25/30  dK/D 40/58  wRSI 52
+  TVC:US30Y              close       5.29 (as of 2026-11-24)  wK/D 25/30  dK/D 28/42  wRSI 52
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  CBOE:BOXX              close     119.15 (as of 2026-11-23)  wK/D 99/99  dK/D 96/96  wRSI 100
+  CBOE:BOXX              close     119.20 (as of 2026-11-24)  wK/D 99/99  dK/D 97/97  wRSI 100
       -> Sell-2 (daily K >= 75)
-  NASDAQ:ECHO            close      88.25 (as of 2026-11-23)  wK/D 40/51  dK/D 24/33  wRSI 45
+  NASDAQ:RKLB            close      45.98 (as of 2026-11-24)  wK/D 19/24  dK/D 16/21  wRSI 39
       -> Sell-1 (weekly RSI/MACD + daily D>K)
-  NYSE:NKE               close      33.76 (as of 2026-11-23)  wK/D 41/53  dK/D 9/11  wRSI 34
+  NYSE:PL                close      10.64 (as of 2026-11-24)  wK/D 12/15  dK/D 14/18  wRSI 33
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:ECHO            close      85.60 (as of 2026-11-24)  wK/D 37/50  dK/D 19/24  wRSI 43
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AMZN            close     252.29 (as of 2026-11-24)  wK/D 51/51  dK/D 27/29  wRSI 50
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AVGO            close     301.08 (as of 2026-11-24)  wK/D 21/22  dK/D 28/40  wRSI 41
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AMD             close     413.27 (as of 2026-11-24)  wK/D 24/32  dK/D 21/28  wRSI 44
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:LUNR            close       8.93 (as of 2026-11-24)  wK/D 20/24  dK/D 16/20  wRSI 37
       -> Sell-1 (weekly RSI/MACD + daily D>K)
 
 CONFLICT - buy conditions AND a sell rule both true (review manually) (1)
-  FX_IDC:USDMYR          close       4.11 (as of 2026-11-23)  wK/D 65/58  dK/D 77/76  wRSI 59
+  FX_IDC:USDMYR          close       4.12 (as of 2026-11-24)  wK/D 68/59  dK/D 80/77  wRSI 61
       -> Sell-2 (daily K >= 75)
 
-NEAR-BUY - 4 of 5 buy conditions met (3)
-  NASDAQ:AMZN            close     255.39 (as of 2026-11-23)  wK/D 53/52  dK/D 29/34  wRSI 52
-      -> daily SKDJ K>D
-  NASDAQ:NVDA            close     165.05 (as of 2026-11-23)  wK/D 17/16  dK/D 23/13  wRSI 41
+NEAR-BUY - 4 of 5 buy conditions met (5)
+  AMEX:IWM               close     267.14 (as of 2026-11-24)  wK/D 23/23  dK/D 23/17  wRSI 43
       -> weekly MACD>0 and >signal
-  NASDAQ:WDC             close     297.25 (as of 2026-11-23)  wK/D 11/11  dK/D 41/40  wRSI 41
+  NASDAQ:AXON            close     319.32 (as of 2026-11-24)  wK/D 11/10  dK/D 42/29  wRSI 37
+      -> weekly MACD>0 and >signal
+  NASDAQ:TSLA            close     384.68 (as of 2026-11-24)  wK/D 47/51  dK/D 51/45  wRSI 52
+      -> weekly SKDJ K>D
+  NYSE:NVO               close      40.31 (as of 2026-11-24)  wK/D 39/37  dK/D 28/22  wRSI 45
+      -> weekly MACD>0 and >signal
+  NYSE:RTX               close     195.33 (as of 2026-11-24)  wK/D 54/51  dK/D 33/33  wRSI 51
       -> weekly MACD>0 and >signal
 
 NO USABLE DATA (3)
-  NYSE:BE                no data returned
+  NASDAQ:CRDO            no data returned
   CBOE:DRAM              insufficient history (35 weeks)
   NASDAQ:SPCX            insufficient history (25 weeks)
 
