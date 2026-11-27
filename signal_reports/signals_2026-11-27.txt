@@ -1,0 +1,55 @@
+SIGNAL REPORT  2026-11-27 08:38 (local time)
+Scanned 91 symbols: 89 evaluated, 2 without usable data
+==============================================================================
+
+BUY - all 5 conditions met (0)
+  none
+
+SELL (12)
+  TVC:US10Y              close       4.85 (as of 2026-11-25)  wK/D 30/39  dK/D 20/28  wRSI 51
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  TVC:US30Y              close       5.24 (as of 2026-11-25)  wK/D 23/29  dK/D 20/29  wRSI 50
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  FX_IDC:USDMYR          close       4.12 (as of 2026-11-26)  wK/D 67/58  dK/D 77/78  wRSI 60
+      -> Sell-2 (daily K >= 75)
+  CBOE:BOXX              close     119.22 (as of 2026-11-25)  wK/D 99/99  dK/D 98/97  wRSI 100
+      -> Sell-2 (daily K >= 75)
+  NASDAQ:RKLB            close      47.02 (as of 2026-11-25)  wK/D 21/25  dK/D 16/18  wRSI 40
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NYSE:PL                close      10.61 (as of 2026-11-25)  wK/D 14/16  dK/D 15/16  wRSI 33
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:ECHO            close      85.74 (as of 2026-11-25)  wK/D 40/51  dK/D 20/21  wRSI 43
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AMZN            close     244.43 (as of 2026-11-25)  wK/D 47/50  dK/D 25/27  wRSI 47
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AVGO            close     300.86 (as of 2026-11-25)  wK/D 24/23  dK/D 24/31  wRSI 41
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:AMD             close     406.03 (as of 2026-11-25)  wK/D 25/32  dK/D 19/22  wRSI 43
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:CEG             close     235.28 (as of 2026-11-25)  wK/D 23/30  dK/D 21/26  wRSI 43
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+  NASDAQ:LUNR            close       9.14 (as of 2026-11-25)  wK/D 22/25  dK/D 16/18  wRSI 38
+      -> Sell-1 (weekly RSI/MACD + daily D>K)
+
+CONFLICT - buy conditions AND a sell rule both true (review manually) (0)
+  none
+
+NEAR-BUY - 4 of 5 buy conditions met (6)
+  AMEX:IWM               close     268.87 (as of 2026-11-25)  wK/D 25/23  dK/D 33/24  wRSI 44
+      -> weekly MACD>0 and >signal
+  NASDAQ:AXON            close     343.05 (as of 2026-11-25)  wK/D 14/11  dK/D 58/42  wRSI 40
+      -> weekly MACD>0 and >signal
+  NASDAQ:NFLX            close      59.41 (as of 2026-11-25)  wK/D 9/8  dK/D 22/15  wRSI 33
+      -> weekly MACD>0 and >signal
+  NYSE:MP                close      35.30 (as of 2026-11-25)  wK/D 18/18  dK/D 32/32  wRSI 36
+      -> weekly MACD>0 and >signal
+  NYSE:NVO               close      40.97 (as of 2026-11-25)  wK/D 42/38  dK/D 41/29  wRSI 47
+      -> weekly MACD>0 and >signal
+  NYSE:RTX               close     196.19 (as of 2026-11-25)  wK/D 55/51  dK/D 42/36  wRSI 52
+      -> weekly MACD>0 and >signal
+
+NO USABLE DATA (2)
+  CBOE:DRAM              insufficient history (35 weeks)
+  NASDAQ:SPCX            insufficient history (25 weeks)
+
+Technical-analysis output only; not investment advice.
